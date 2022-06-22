@@ -22,6 +22,12 @@ import Signup from "./pages/signup";
 import PageNotFound from "./pages/pagenotfound";
 import { UserContext } from "./context/UserContext";
 import Footer from "./layout/Footer";
+import Header from "./layout/Header";
+
+import firebaseConfig from "./config/firebaseConfig";
+
+//init firebase
+// firebase.initializeApp(firebaseConfig)
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -30,6 +36,7 @@ const App = () => {
     <Router>
       <ToastContainer />
       <UserContext.Provider value={{ user, setUser }}>
+        <Header/> 
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/signin" component={Signin} />
